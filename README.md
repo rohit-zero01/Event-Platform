@@ -36,3 +36,7 @@ Because validation and updates occur in a single atomic operation, race conditio
 - Prevention of duplicate RSVPs  
 - Role-based access control  
 - Fully responsive UI using Bootstrap  
+
+Optional Enhancements (In Progress)
+
+The application is designed with extensibility in mind, and work is currently in progress on additional enhancements to further improve functionality and user experience. Planned improvements include AI-assisted event description generation, enhanced search and filtering capabilities, and a personalized user dashboard displaying created and attended events. Further UI and UX refinements, such as improved form validation and visual enhancements, are also being explored.
