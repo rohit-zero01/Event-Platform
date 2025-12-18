@@ -18,6 +18,11 @@ mongoose
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.log(err));
 
+  app.get("/", (req, res) => {
+    res.send("Mini Event Platform Backend is running");
+  });
+  
+
   app.get("/test", (req, res) => {
     res.send("Backend working");
   });
