@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditEvent = () => {
@@ -22,7 +22,7 @@ const EditEvent = () => {
       return;
     }
 
-    axios.get(`/api/events/${id}`).then((res) => {
+    api.get(`/api/events/${id}`).then((res) => {
       setForm({
         title: res.data.title,
         description: res.data.description,
@@ -42,7 +42,7 @@ const EditEvent = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`/api/events/${id}`, form, {
+      await api.put(`/api/events/${id}`, form, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    axios
+    api
       .get("/api/events")
       .then((res) => setEvents(res.data))
       .catch(() => alert("Failed to load events"));

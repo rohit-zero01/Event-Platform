@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../api";
 import { useNavigate } from "react-router-dom";
 
 const CreateEvent = () => {
@@ -40,12 +40,9 @@ console.log("TOKEN:", localStorage.getItem("token"));
 
 
     try {
-      await axios.post("/api/events", data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          // "Content-Type": "multipart/form-data",
-        },
-      });
+      await api.post("/api/events", data, {
+        headers: { Authorization: `Bearer ${token}` },
+      });      
       navigate("/");
     } catch {
       alert("Event creation failed");

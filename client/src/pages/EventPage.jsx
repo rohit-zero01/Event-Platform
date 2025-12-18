@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import api from "../api";
 import { useParams, useNavigate } from "react-router-dom";
 
 const EventPage = () => {
@@ -12,7 +12,7 @@ const EventPage = () => {
   const userId = localStorage.getItem("userId");
 
   useEffect(() => {
-    axios
+    api
       .get(`/api/events/${id}`)
       .then((res) => setEvent(res.data))
       .catch(() => {});
@@ -20,7 +20,7 @@ const EventPage = () => {
 
   const handleRSVP = async () => {
     try {
-      const res = await axios.post(
+      const res = await api.post(
         `/api/events/${id}/rsvp`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
@@ -34,7 +34,7 @@ const EventPage = () => {
 
   const handleUnRSVP = async () => {
     try {
-      const res = await axios.post(
+      const res = await api.post(
         `/api/events/${id}/unrsvp`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
@@ -114,7 +114,7 @@ const EventPage = () => {
                     <button
                       className="btn btn-danger"
                       onClick={async () => {
-                        await axios.delete(`/api/events/${id}`, {
+                        await api.delete(`/api/events/${id}`, {
                           headers: { Authorization: `Bearer ${token}` },
                         });
                         navigate("/");

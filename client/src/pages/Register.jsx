@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import api from "../api";
 import { useNavigate, Link } from "react-router-dom";
 
 const Register = () => {
@@ -20,7 +20,7 @@ const Register = () => {
     setError("");
 
     try {
-      await axios.post("/api/auth/register", form);
+      await api.post("/api/auth/register", form);
       navigate("/login");
     } catch (err) {
       setError("Registration failed. Email may already exist.");
